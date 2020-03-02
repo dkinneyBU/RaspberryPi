@@ -20,26 +20,30 @@ try:
         z = abs(z)
 
         temp = sense.get_temperature()
-        temp = 1.8 * round(temp, 1)  + 32
+        temp = 1.8 * round(temp, 1)  + 12
         temp = round(temp, 1)
-        print("Temperature F",temp)
+        print(" Temperature F",temp)
 
         humidity = sense.get_humidity()
         humidity = round(humidity, 1)
-        print("Humidity :",humidity)
+        print(" Humidity :",humidity)
 
         pressure = sense.get_pressure()
         pressure = round(pressure, 1)
-        print("Pressure:",pressure)
+        print(" Pressure:",pressure)
 
         if x > 1 or y > 1 or z > 1:
             sense.show_message("PUT ME DOWN!", red)
         else:
-            sense.show_message("T... F " + str(temp) + "Humidity... "
-            + str(humidity) + "Pressure... "
-            + str(pressure), scroll_speed=(0.2),
-            back_colour= [0,0,200])
-        time.sleep(5)
+            sense.show_message("T..." + str(temp) + "F  H... "
+            + str(humidity) + " Pr... "
+            + str(pressure), scroll_speed=(0.15),
+            text_colour=[75,0,130],
+            back_colour= [0,0,0])
+        time.sleep(60)
+        sense.show_message("Welcome to the machine, David...",
+                           text_colour=[0,100,0])
+        time.sleep(15)
 except KeyboardInterrupt:
     pass
 
